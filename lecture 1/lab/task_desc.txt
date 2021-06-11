@@ -1,0 +1,11 @@
+ToDo list
+     => node todo.js get => preview all the data
+     => node todo.js add 'go to school' => add new data
+     => node todo.js delete 2 => delete old data by id 
+BOUNS     => node todo.js edit 2 'new edited value'=> edit old data by id 
+
+
+initialize npm 
+=>install express as dep
+=>install nodemon as dev-dep
+=> install nodemon as global package
