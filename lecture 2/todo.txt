@@ -1,0 +1,6 @@
+CRUD ToDos
+    GET /todos =>            return all todos
+    GET /todo/:id =>            return single todo
+    POST /todos =>           to add new tod
+    DELETE /todo/:id =>          to delete specific todo
+    PUT /todo/:id =>            to edit specific todo
