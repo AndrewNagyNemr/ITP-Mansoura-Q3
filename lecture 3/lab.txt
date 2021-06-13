@@ -1,0 +1,6 @@
+please make user model and it's routes 
+    note : Don't save the password as it is (hash it before)
+please make todos model and it's routes
+create custom middle ware that log the request method , url , Date
+
+Bonus create middle ware that reject requests with invalid password 
