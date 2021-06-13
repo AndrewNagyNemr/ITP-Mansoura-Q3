@@ -7,6 +7,9 @@ const todos = [
 ]
 
 router.get("/", (req, res) => {
+    //communication with the database <== ODM <= Models
+
+
     res.json(todos)
 })
 
