@@ -1,24 +1,26 @@
 const mongoose = require("mongoose");
-const User = require("./models/users");
+const express = require("express");
+const usersRouter = require("./Routes/users")
 
 const DB_PASS = process.env.DB_PASS
+const PORT = process.env.PORT || 3000
+const app = express();
 
-// mongoose.connect(`mongodb+srv://admin:${DB_PASS}@cluster0.vjfww.mongodb.net/ITP-Mansoura?retryWrites=true&w=majority`)
-//     .then(async() => {
-//         console.log("connected to mongodb");
-//         const newUser = new User({name:"Ahmed", email:"email@email.com", password:"12345"})
-//         const result = await newUser.save()
-//         console.log(result);
-//     })
-//     .catch(console.error)
+//middleware
+app.use(express.json())
 
-mongoose.connect(`mongodb+srv://admin:${DB_PASS}@cluster0.vjfww.mongodb.net/ITP-Mansoura?retryWrites=true&w=majority`)
+
+//routes
+app.use("/users", usersRouter)
+
+mongoose.connect(`mongodb+srv://admin:${DB_PASS}@cluster0.vjfww.mongodb.net/ITP-Mansoura?retryWrites=true&w=majority`,
+    {useNewUrlParser: true, useUnifiedTopology: true}
+    )
     .then(() => {
         console.log("connected to mongodb");
-        const newUser = new User({ name: "Ahmed", email: "email@email.com", password: "12345" })
-        return newUser.save()
-
-    }).then(console.log)
+        app.listen(PORT, ()=>{
+            console.log(`listening on port ${PORT}`);
+        })
+    })
     .catch(console.error)
 
-//mongodb://localhost/ITP-Mansoura
