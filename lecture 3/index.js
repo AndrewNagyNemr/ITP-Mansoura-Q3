@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const express = require("express");
 const usersRouter = require("./Routes/users")
 // const User = require("./models/users")
+const logger = require("./middleware/logger")
+// const auth = require("./middleware/auth")
 
 const DB_PASS = process.env.DB_PASS
 const NODE_ENV = process.env.NODE_ENV
@@ -10,11 +12,9 @@ const app = express();
 
 //middleware
 app.use(express.json()) // parse data from req body => req.body
+// app.use(auth)
 if (NODE_ENV === "development")
-    app.use((req, res, next) => {
-        console.log(req.method, req.url);
-        next();
-    })
+    app.use(logger)
 
 // //template engine
 // app.get("/", async (req, res) => {
